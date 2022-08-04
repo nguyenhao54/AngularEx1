@@ -1,0 +1,53 @@
+<tr [ngStyle]="{ 'background-color': background }">
+  <td>{{ obj.id }}</td>
+  <td *ngIf="editable" contenteditable="true">
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      [(ngModel)]="obj.name"
+    />
+  </td>
+  <td *ngIf="!editable" contenteditable="false">
+    {{ obj.name }}
+  </td>
+  <td
+    *ngIf="editable"
+    contenteditable="true"
+    [ngStyle]="{ color: obj.color.key }"
+  >
+    <select
+      type=""
+      class="form-control"
+      name="color"
+      [(ngModel)]="obj.color.key"
+    >
+      <option value="blue">0</option>
+      <option value="red">1</option>
+      <option value="violet">2</option>
+      <option value="yellow">3</option>
+    </select>
+  </td>
+  <td
+    *ngIf="!editable"
+    contenteditable="false"
+    [ngStyle]="{ color: obj.color.key }"
+  >
+    {{ obj.color.key }}
+  </td>
+  <td>
+    <app-button
+      *ngIf="editable"
+      (btnClick)="onSave(obj)"
+      color="black"
+      text="Save"
+    ></app-button>
+    <app-button
+      *ngIf="!editable"
+      (btnClick)="onEdit()"
+      color="green"
+      text="Edit"
+    ></app-button>
+    <app-button (btnClick)="onDelete(obj)" color="red" text="Del"></app-button>
+  </td>
+</tr>

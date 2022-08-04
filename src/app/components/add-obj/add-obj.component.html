@@ -1,0 +1,53 @@
+<form action="" *ngIf="showAddObj" class="add-form" (ngSubmit)="onSubmit()">
+  <div style="width: 690px">
+    <label for="id">ID</label>
+    <input
+      class="form-control"
+      type="text"
+      name="id"
+      [(ngModel)]="id"
+      placeholder="Enter id"
+    />
+  </div>
+  <label *ngIf="!idIsOK" style="color: red; font-size: 14px">{{
+    idError
+  }}</label>
+
+  <div style="width: 690px">
+    <label for="name">Name</label>
+    <input
+      class="form-control"
+      type="text"
+      name="name"
+      [(ngModel)]="name"
+      placeholder="Enter name"
+    />
+    <label *ngIf="!nameIsOK" style="color: red; font-size: 14px">{{
+      nameError
+    }}</label>
+  </div>
+  <div style="width: 690px">
+    <label for="color">Color</label>
+    <select
+      class="form-control"
+      type="text"
+      name="color"
+      [(ngModel)]="color"
+      placeholder="Select color"
+    >
+      <option value="blue">0</option>
+      <option value="red">1</option>
+      <option value="violet">2</option>
+      <option value="yellow">3</option>
+    </select>
+    <label *ngIf="!colorIsOK" style="color: red; font-size: 14px"
+      >Please select a color</label
+    >
+  </div>
+  <input
+    type="submit"
+    value="Add Product"
+    class="btn btn-block"
+    style="width: 690px"
+  />
+</form>

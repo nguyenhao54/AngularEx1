@@ -1,0 +1,17 @@
+<app-button
+  text="{{ showAddObj ? 'Close' : 'Add' }}"
+  color="{{ showAddObj ? 'red' : 'green' }}"
+  (btnClick)="toggleAdd()"
+></app-button>
+<app-add-obj *ngIf="showAddObj" (onAddObj)="addObj($event)"> </app-add-obj>
+
+<table>
+  <app-table-header> </app-table-header>
+  <app-row
+    *ngFor="let obj of objs"
+    [obj]="obj"
+    (onDeleteObj)="deleteObj(obj)"
+    (onSaveObj)="saveObj(obj)"
+  >
+  </app-row>
+</table>

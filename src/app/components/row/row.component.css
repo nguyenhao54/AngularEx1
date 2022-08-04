@@ -1,0 +1,9 @@
+tr {
+  width: 700px;
+  display: flex;
+}
+td {
+  text-align: center;
+  margin: auto;
+  width: 255px;
+}
