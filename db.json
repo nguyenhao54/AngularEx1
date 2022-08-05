@@ -27,6 +27,20 @@
       "color": {
         "key": "red"
       }
+    },
+    {
+      "id": 12,
+      "name": "Muji",
+      "color": {
+        "key": "red"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Muji",
+      "color": {
+        "key": "violet"
+      }
     }
   ]
 }

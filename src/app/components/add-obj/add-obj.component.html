@@ -1,17 +1,28 @@
-<form action="" *ngIf="showAddObj" class="add-form" (ngSubmit)="onSubmit()">
+<form
+  [formGroup]="addObjForm"
+  *ngIf="showAddObj"
+  class="add-form"
+  (ngSubmit)="onSubmit()"
+  novalidate
+>
   <div style="width: 690px">
     <label for="id">ID</label>
     <input
       class="form-control"
       type="text"
       name="id"
-      [(ngModel)]="id"
+      formControlName="id"
       placeholder="Enter id"
     />
   </div>
-  <label *ngIf="!idIsOK" style="color: red; font-size: 14px">{{
-    idError
-  }}</label>
+  <div *ngIf="!id?.valid && (id?.dirty || id?.touched)">
+    <label [hidden]="!id.errors.required" style="color: red; font-size: 14px"
+      >Id is required</label
+    >
+    <label [hidden]="!id.errors.maxlength" style="color: red; font-size: 14px"
+      >Id is required</label
+    >
+  </div>
 
   <div style="width: 690px">
     <label for="name">Name</label>
@@ -19,12 +30,16 @@
       class="form-control"
       type="text"
       name="name"
-      [(ngModel)]="name"
+      formControlName="name"
       placeholder="Enter name"
     />
-    <label *ngIf="!nameIsOK" style="color: red; font-size: 14px">{{
-      nameError
-    }}</label>
+    <div *ngIf="!name?.valid && (name?.dirty || name?.touched)">
+      <label
+        [hidden]="!name.errors.required"
+        style="color: red; font-size: 14px"
+        >Name is required</label
+      >
+    </div>
   </div>
   <div style="width: 690px">
     <label for="color">Color</label>
@@ -32,7 +47,7 @@
       class="form-control"
       type="text"
       name="color"
-      [(ngModel)]="color"
+      formControlName="color"
       placeholder="Select color"
     >
       <option value="blue">0</option>
@@ -40,14 +55,19 @@
       <option value="violet">2</option>
       <option value="yellow">3</option>
     </select>
-    <label *ngIf="!colorIsOK" style="color: red; font-size: 14px"
-      >Please select a color</label
-    >
+    <div *ngIf="!color?.valid && (color?.dirty || color?.touched)">
+      <label
+        [hidden]="!color.errors.required"
+        style="color: red; font-size: 14px"
+        >Please select a color</label
+      >
+    </div>
   </div>
   <input
     type="submit"
     value="Add Product"
     class="btn btn-block"
     style="width: 690px"
+    [disabled]="!addObjForm.valid"
   />
 </form>
