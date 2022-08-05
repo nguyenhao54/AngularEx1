@@ -2,9 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
-## Development server
+## Development serverCancel changes
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## DB Server
+
+Run `npm i json-server` to install json server.
+Run `npm run server` to start the server locally on port 5050. Navigate to `http://localhost:5050/objs` to see whether the server is running or not.
 
 ## Code scaffolding
 
