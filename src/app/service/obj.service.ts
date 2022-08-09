@@ -17,6 +17,10 @@ export class ObjService {
   getObjs(): Observable<Obj[]> {
     return this.http.get<Obj[]>(this.apiUrl);
   }
+  getObj(objId: number): Observable<Obj> {
+    const url = `${this.apiUrl}/${objId}`;
+    return this.http.get<Obj>(url);
+  }
   deleteObj(obj: Obj): Observable<Obj> {
     const url = `${this.apiUrl}/${obj.id}`;
     return this.http.delete<Obj>(url);

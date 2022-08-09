@@ -1,11 +1,12 @@
 <form
+  style="width: 890px"
   [formGroup]="addObjForm"
   *ngIf="showAddObj"
   class="add-form"
   (ngSubmit)="onSubmit()"
   novalidate
 >
-  <div style="width: 690px">
+  <div>
     <label for="id">ID</label>
     <input
       class="form-control"
@@ -24,7 +25,7 @@
     >
   </div>
 
-  <div style="width: 690px">
+  <div>
     <label for="name">Name</label>
     <input
       class="form-control"
@@ -41,7 +42,7 @@
       >
     </div>
   </div>
-  <div style="width: 690px">
+  <div>
     <label for="color">Color</label>
     <select
       class="form-control"
@@ -67,7 +68,7 @@
     type="submit"
     value="Add Product"
     class="btn btn-block"
-    style="width: 690px"
+    style="margin-top: 12px"
     [disabled]="!addObjForm.valid"
   />
 </form>

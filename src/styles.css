@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 940px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
@@ -43,6 +43,7 @@ body {
   width: 100%;
 }
 table {
+  margin-top: 16px;
   border: 1px solid rgba(128, 128, 128, 0.56);
   border-radius: 5px;
 }

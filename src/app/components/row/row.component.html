@@ -35,7 +35,14 @@
   >
     {{ obj.color.key }}
   </td>
-  <td>
+  <td style="width: 400px">
+    <a
+      [routerLink]="['detail', obj.id]"
+      class="btn"
+      style="background-color: rgb(59, 59, 169)"
+      >View</a
+    >
+
     <app-button
       *ngIf="editable"
       (btnClick)="onSave(obj)"

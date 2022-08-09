@@ -1,14 +1,23 @@
-<app-button
-  text="{{ showAddObj ? 'Close' : 'Add' }}"
-  color="{{ showAddObj ? 'red' : 'green' }}"
-  (btnClick)="toggleAdd()"
-></app-button>
+<div style="display: flex; justify-content: space-between; width: 900px">
+  <app-button
+    text="{{ showAddObj ? 'Close' : 'Add' }}"
+    color="{{ showAddObj ? 'red' : 'green' }}"
+    (btnClick)="toggleAdd()"
+  ></app-button>
+  <input
+    [(ngModel)]="search"
+    type="text"
+    placeholder="Search..."
+    class="form-control"
+    style="width: 800px; border-radius: 25px; border-color: grey"
+  />
+</div>
 <app-add-obj *ngIf="showAddObj" (onAddObj)="addObj($event)"> </app-add-obj>
 
 <table>
   <app-table-header> </app-table-header>
   <app-row
-    *ngFor="let obj of objs"
+    *ngFor="let obj of objs | filter: search"
     [obj]="obj"
     (onDeleteObj)="deleteObj(obj)"
     (onSaveObj)="saveObj(obj)"

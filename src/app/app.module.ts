@@ -11,7 +11,14 @@ import { TableComponent } from './components/table/table.component';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddObjComponent } from './components/add-obj/add-obj.component';
-
+import { DetailComponent } from './components/detail/detail.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+const appRoutes: Routes = [
+  { path: '', component: TableComponent },
+  { path: 'detail/:id', component: DetailComponent },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +27,8 @@ import { AddObjComponent } from './components/add-obj/add-obj.component';
     TableComponent,
     TableHeaderComponent,
     AddObjComponent,
+    DetailComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +37,8 @@ import { AddObjComponent } from './components/add-obj/add-obj.component';
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,16 @@
+<div class="container">
+  <div
+    style="
+      width: 700px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    "
+  >
+    <h1 *ngIf="hasRoute('/'); else detail">Product Management</h1>
+    <ng-template #detail>
+      <h1>Product detail</h1>
+    </ng-template>
+  </div>
+  <router-outlet></router-outlet>
+</div>

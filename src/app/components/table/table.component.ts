@@ -9,14 +9,20 @@ import { ObjService } from 'src/app/service/obj.service';
 })
 export class TableComponent implements OnInit {
   objs: Obj[] = [];
+  search!: string;
   showAddObj: boolean = false;
   constructor(private objService: ObjService) {}
   toggleAdd() {
     this.showAddObj = !this.showAddObj;
   }
   ngOnInit(): void {
-    this.objService.getObjs().subscribe((objs) => (this.objs = objs));
+    this.objService.getObjs().subscribe((objs) => {
+      this.objs = objs;
+      this.objs.sort((a, b) => a.id! - b.id!);
+      // console.log(this.objs);
+    });
   }
+
   deleteObj(obj: Obj) {
     this.objService
       .deleteObj(obj)
@@ -26,6 +32,9 @@ export class TableComponent implements OnInit {
     this.objService.updateObj(obj).subscribe();
   }
   addObj(obj: Obj) {
-    this.objService.addObj(obj).subscribe((obj) => this.objs.push(obj));
+    this.objService.addObj(obj).subscribe((obj) => {
+      this.objs.push(obj);
+      this.objs.sort((a, b) => a.id! - b.id!);
+    });
   }
 }
