@@ -2,8 +2,13 @@ tr {
   width: 900px;
   display: flex;
 }
+
 td {
   text-align: center;
   margin: auto;
   width: 255px;
+}
+tr:hover {
+  cursor: pointer;
+  background-color: rgb(228, 228, 228);
 }

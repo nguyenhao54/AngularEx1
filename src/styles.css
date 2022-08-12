@@ -13,7 +13,7 @@ body {
 .container {
   max-width: 940px;
   margin: 30px auto;
-  overflow: auto;
+  /* overflow: auto; */
   min-height: 300px;
   padding: 30px;
   border-radius: 5px;
@@ -79,4 +79,28 @@ tr {
 .form-control-check input {
   flex: 2;
   height: 20px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 10px;
 }

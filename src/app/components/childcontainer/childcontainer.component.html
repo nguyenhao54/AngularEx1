@@ -1,0 +1,4 @@
+<div style="display: flex; overflow: auto; width: 720px">
+  <app-child *ngFor="let obj of objs" [obj]="obj" (onAddToTable)="addObj(obj)">
+  </app-child>
+</div>

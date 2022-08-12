@@ -1,5 +1,6 @@
 import { STRING_TYPE } from '@angular/compiler';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Obj } from 'src/app/obj';
 import { UiService } from 'src/app/service/ui.service';
@@ -18,7 +19,7 @@ export class RowComponent implements OnInit {
   @Output() onDeleteObj: EventEmitter<Obj> = new EventEmitter();
   @Output() onSaveObj: EventEmitter<Obj> = new EventEmitter();
 
-  constructor(private uiService: UiService) {
+  constructor(private uiService: UiService, private router: Router) {
     this.subscription = this.uiService
       .onToggle()
       .subscribe((value) => (this.editable = value));
@@ -37,5 +38,8 @@ export class RowComponent implements OnInit {
     this.onSaveObj.emit(obj);
     this.uiService.toggleEdit();
     console.log(this.editable);
+  }
+  redirect(obj: Obj) {
+    this.router.navigate(['product/detail', obj.id]);
   }
 }

@@ -16,11 +16,13 @@
 
 <table>
   <app-table-header> </app-table-header>
-  <app-row
-    *ngFor="let obj of objs | filter: search"
-    [obj]="obj"
-    (onDeleteObj)="deleteObj(obj)"
-    (onSaveObj)="saveObj(obj)"
-  >
-  </app-row>
+  <div style="overflow-y: scroll; height: 450px">
+    <app-row
+      *ngFor="let obj of objs | filter: search"
+      [obj]="obj"
+      (onDeleteObj)="deleteObj(obj)"
+      (onSaveObj)="saveObj(obj)"
+    >
+    </app-row>
+  </div>
 </table>

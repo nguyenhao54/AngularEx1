@@ -1,0 +1,8 @@
+<tr>
+  <td name="id">{{ addobj.obj.id }}</td>
+  <td name="name">{{ addobj.obj.name }}</td>
+  <td [ngStyle]="{ color: addobj.obj.color.key }">
+    {{ addobj.obj.color.key }}
+  </td>
+  <app-button (btnClick)="onDelete(addobj)" color="red" text="Del"></app-button>
+</tr>

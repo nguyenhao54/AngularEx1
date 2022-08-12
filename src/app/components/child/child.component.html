@@ -1,0 +1,19 @@
+<div
+  [ngStyle]="{ 'border-color': obj.color.key }"
+  style="
+    text-align: center;
+    margin: 12px;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 8px;
+    width: 160px;
+    height: 200px;
+  "
+>
+  <p>{{ obj.id }}</p>
+  <h4>{{ obj.name }}</h4>
+  <p>{{ obj.color.key }}</p>
+
+  <app-button text="Add" color="green" (btnClick)="addToTable(obj)">
+  </app-button>
+</div>

@@ -1,4 +1,4 @@
-<tr [ngStyle]="{ 'background-color': background }">
+<tr (dblclick)="redirect(obj)" [ngStyle]="{ 'background-color': background }">
   <td>{{ obj.id }}</td>
   <td *ngIf="editable" contenteditable="true">
     <input
@@ -39,7 +39,7 @@
     <a
       [routerLink]="['detail', obj.id]"
       class="btn"
-      style="background-color: rgb(59, 59, 169)"
+      style="background-color: rgb(36, 36, 36)"
       >View</a
     >
 
